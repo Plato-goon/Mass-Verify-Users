@@ -61,4 +61,8 @@ async def verify(ctx):
     await ctx.send(f"Assigned the 'unverified' role to {assigned_count} members without the 'verified' role.")
     print(f"Assigned 'unverified' role to {assigned_count} members.")  # Debug print
 
-bot.run(TOKEN)
+# Set the port for the web server (optional for Discord bot)
+PORT = int(os.environ.get('PORT', 5000))
+
+# Start the bot with optional web server on the specified port
+bot.run(TOKEN, port=PORT)
