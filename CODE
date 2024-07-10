@@ -61,5 +61,5 @@ async def verify(ctx):
     await ctx.send(f"Assigned the 'unverified' role to {assigned_count} members without the 'verified' role.")
     print(f"Assigned 'unverified' role to {assigned_count} members.")  # Debug print
 
-# Start the bot with the dynamically fetched port
-bot.run(TOKEN, port=int(os.getenv('PORT', 3000)))
+# Start the bot without specifying port
+bot.run(TOKEN)
