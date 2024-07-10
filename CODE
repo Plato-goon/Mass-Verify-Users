@@ -65,4 +65,4 @@ async def verify(ctx):
 PORT = int(os.environ.get('PORT', 5000))
 
 # Start the bot with optional web server on the specified port
-bot.run(TOKEN, port=PORT)
+bot.run(TOKEN)
