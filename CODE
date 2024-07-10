@@ -64,5 +64,5 @@ async def verify(ctx):
     await ctx.send(f"Assigned the 'unverified' role to {assigned_count} members without the 'verified' role.")
     print(f"Assigned 'unverified' role to {assigned_count} members.")  # Debug print
 
-# Run the bot with the specified token and port
-bot.run(TOKEN, port=port)
+# Run the bot with the specified token
+bot.run(TOKEN)
