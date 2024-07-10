@@ -34,7 +34,6 @@ async def verify(ctx):
         await ctx.send("The 'verified' role does not exist.")
         return
 
-    bot_member = ctx.guild.get_member(bot.user.id)
     assigned_count = 0
 
     print(f"Checking {len(ctx.guild.members)} members")  # Debug print
@@ -61,5 +60,8 @@ async def verify(ctx):
     await ctx.send(f"Assigned the 'unverified' role to {assigned_count} members without the 'verified' role.")
     print(f"Assigned 'unverified' role to {assigned_count} members.")  # Debug print
 
-# Start the bot without specifying port
-bot.run(TOKEN)
+# Start the bot
+if __name__ == "__main__":
+    # On Render, we need to bind to a port for it to detect the service
+    port = int(os.getenv('PORT', 3000))  # Use a default port, change if necessary
+    bot.run(TOKEN)
