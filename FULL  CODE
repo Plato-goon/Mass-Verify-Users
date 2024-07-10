@@ -1,17 +1,15 @@
+import os
 import discord
 from discord.ext import commands
 
-# Replace this with your bot token
-TOKEN = 'ADD BOT TOKEN'
+# Fetch the bot token from the environment variable
+TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 
 # Define intents
 intents = discord.Intents.default()
 intents.message_content = True
 intents.messages = True
 intents.members = True  # Enable the intent to receive member events
-
-
-
 
 # Initialize bot with intents
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -20,8 +18,8 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'Bot connected as {bot.user}')
 
-UNVERIFIED_ROLE_ID = MAKE SURE TO PUT ROLE ID HERE
-VERIFIED_ROLE_ID = MAKE SURE TO PUT ROLE ID HERE
+UNVERIFIED_ROLE_ID = int(os.getenv('UNVERIFIED_ROLE_ID'))
+VERIFIED_ROLE_ID = int(os.getenv('VERIFIED_ROLE_ID'))
 
 @bot.command()
 @commands.has_permissions(administrator=True)
@@ -65,7 +63,3 @@ async def verify(ctx):
     print(f"Assigned 'unverified' role to {assigned_count} members.")  # Debug print
 
 bot.run(TOKEN)
-
-
-
-
